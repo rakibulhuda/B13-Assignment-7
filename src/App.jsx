@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import FriendDetail from './pages/FriendDetail';
+import NotFound from './pages/NotFound';
 import { TimelineProvider } from './context/TimelineContext';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/friend/:id" element={<FriendDetail />} />
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                     </main>
                     <Footer />
