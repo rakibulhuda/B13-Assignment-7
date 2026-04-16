@@ -14,7 +14,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-14">
                     {/* Logo — plain text exactly like Figma */}
                     <NavLink to="/" className="flex items-center">
-                        <img src="/logo.png" alt="KeenKeeper" className="h-5 object-contain" style={{ imageRendering: 'auto', background: 'transparent' }} />
+                        <img src="/logo.png" alt="KeenKeeper" className="h-50 object-contain" style={{ imageRendering: 'auto', background: 'transparent' }} />
                     </NavLink>
 
                     {/* Nav links */}
