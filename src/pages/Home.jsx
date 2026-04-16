@@ -29,14 +29,14 @@ export default function Home() {
     return (
         <div className="min-h-screen" style={{ backgroundColor: '#f8fafc' }}>
             {/* Banner */}
-            <section className="bg-white border-b border-gray-100">
+            <section className=" border-b border-gray-100">
                 <div className="w-full px-6 sm:px-10 lg:px-16 py-10">
                     <div className="text-center">
                         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
-                            Keep Your <span className="text-primary">Friendships</span> Alive
+                            <span className="text-primary">Friends</span> to keep close in your life
                         </h1>
                         <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto mb-6">
-                            Track, nurture, and celebrate the relationships that matter most to you.
+                            Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
                         </p>
                         <button
                             onClick={() => setShowModal(true)}
@@ -64,6 +64,11 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Divider Line */}
+            <div className="w-full px-6 sm:px-10 lg:px-16">
+                <div className="border-t border-gray-200"></div>
+            </div>
+
             {/* Friends Section */}
             <section className="w-full px-6 sm:px-10 lg:px-16 py-10">
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Your Friends</h2>
@@ -85,7 +90,7 @@ export default function Home() {
             {/* Add Friend Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
-                    <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-xl" onClick={e => e.stopPropagation()}>
+                    <div className="rounded-2xl p-6 w-full max-w-md shadow-xl" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-lg font-bold text-gray-900">Add a Friend</h2>
                             <button onClick={() => setShowModal(false)} className="text-gray-400 hover:text-gray-600">

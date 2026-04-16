@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import { TimelineProvider } from './context/TimelineContext.jsx';
+import FriendDetail from './pages/FriendDetail';
+import { TimelineProvider } from './context/TimelineContext';
 
 export default function App() {
     return (
@@ -13,8 +14,10 @@ export default function App() {
                     <main className="flex-1">
                         <Routes>
                             <Route path="/" element={<Home />} />
+                            <Route path="/friend/:id" element={<FriendDetail />} />
                         </Routes>
                     </main>
+
                 </div>
                 <Toaster position="top-right" />
             </TimelineProvider>
