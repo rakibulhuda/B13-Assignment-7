@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-// import StatusBadge from './StatusBadge';
-// import TagBadge from './TagBadge';
+import StatusBadge from './StatusBadge';
+import TagBadge from './TagBadge';
 
 export default function FriendCard({ friend }) {
     const navigate = useNavigate();
