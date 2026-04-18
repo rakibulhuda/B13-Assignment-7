@@ -94,21 +94,25 @@ export default function Home() {
             {/* Friends Section */}
             <section className="w-full px-6 sm:px-10 lg:px-16 py-10">
 
-                {/* Section Header — Title + Search + Sort */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                {/* Section Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+
+                    {/* Title */}
                     <h2 className="text-xl font-bold text-gray-900">Your Friends</h2>
 
+                    {/* Search + Sort (only after loading) */}
                     {!loading && (
                         <div className="flex items-center gap-2">
-                            {/* Search Bar */}
-                            <div className="relative">
+
+                            {/* Search Bar — grows to fill available space */}
+                            <div className="relative flex-1">
                                 <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                 <input
                                     type="text"
-                                    placeholder="Search by name or tag..."
+                                    placeholder="Search by name"
                                     value={search}
                                     onChange={e => setSearch(e.target.value)}
-                                    className="pl-8 pr-4 py-2 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 w-48 sm:w-56 transition-all"
+                                    className="w-full pl-8 pr-8 py-2 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all"
                                 />
                                 {search && (
                                     <button
@@ -120,19 +124,22 @@ export default function Home() {
                                 )}
                             </div>
 
-                            {/* Sort Dropdown */}
-                            <div className="relative">
+                            {/* Sort Dropdown — fixed width, never shrinks */}
+                            <div className="relative flex-shrink-0">
                                 <button
                                     onClick={() => setSortOpen(!sortOpen)}
                                     className="flex items-center gap-1.5 px-3 py-2 text-sm border border-gray-200 rounded-lg bg-white text-gray-600 hover:border-gray-300 transition-colors whitespace-nowrap"
                                 >
-                                    <span>{sortOptions.find(o => o.value === sort)?.label}</span>
+                                    {/* Short label on mobile, full label on desktop */}
+                                    <span className="sm:hidden">Sort</span>
+                                    <span className="hidden sm:inline">
+                                        {sortOptions.find(o => o.value === sort)?.label}
+                                    </span>
                                     <ChevronDown size={14} className={`transition-transform ${sortOpen ? 'rotate-180' : ''}`} />
                                 </button>
 
                                 {sortOpen && (
                                     <>
-                                        {/* Backdrop to close */}
                                         <div className="fixed inset-0 z-10" onClick={() => setSortOpen(false)} />
                                         <div className="absolute right-0 top-full mt-1 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-20 overflow-hidden">
                                             {sortOptions.map(option => (
@@ -156,6 +163,7 @@ export default function Home() {
                     )}
                 </div>
 
+                {/* Friends Grid */}
                 {loading ? (
                     <div className="flex flex-col items-center justify-center py-24 gap-4">
                         <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
@@ -189,9 +197,13 @@ export default function Home() {
                             </button>
                         </div>
                         <p className="text-sm text-gray-500 mb-4">
-                            This feature is coming soon! For now, edit <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">public/friends.json</code> to add friends.
+                            This feature is coming soon! For now, edit{' '}
+                            <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">public/friends.json</code> to add friends.
                         </p>
-                        <button onClick={() => setShowModal(false)} className="w-full bg-primary text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-primary-dark transition-colors">
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="w-full bg-primary text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-primary-dark transition-colors"
+                        >
                             Got it
                         </button>
                     </div>
