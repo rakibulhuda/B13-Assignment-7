@@ -8,10 +8,12 @@ import Timeline from './pages/Timeline';
 import Stats from './pages/Stats';
 import NotFound from './pages/NotFound';
 import { TimelineProvider } from './context/TimelineContext';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <TimelineProvider>
                 <div className="flex flex-col min-h-screen">
                     <Navbar />
